@@ -3,24 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ellen's Hair Salon — braiding on Dune Route, Richards Bay</title>
+<title>Ellen's Salon — braiding on Dune Route, Richards Bay</title>
 <meta name="description" content="Braiding and hair styling on Dune Route, Richards Bay. Cornrows, box braids and protective styles. Open daily until 7:30 pm. Call 063 386 8838.">
 <meta name="theme-color" content="#93291E">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2393291E'/%3E%3Ctext x='16' y='24' font-family='Arial Black,Arial' font-size='22' font-weight='900' text-anchor='middle' fill='%23F7F4EE'%3EE%3C/text%3E%3C/svg%3E">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Ellen's Hair Salon — Richards Bay">
+<meta property="og:title" content="Ellen's Salon — Richards Bay">
 <meta property="og:description" content="Braiding and hair styling on Dune Route, Richards Bay. Open daily until 7:30 pm.">
 
 <link rel="preload" href="fonts/archivo-black-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 
+<script>
+  /* Arm the scroll reveals before first paint, so nothing flashes in and out.
+     Without JS, or with reduced motion, the class is never set and every
+     revealed element keeps its normal visible state. */
+  try {
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('reveal-armed');
+    }
+  } catch (e) {}
+</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "HairSalon",
-  "name": "Ellen's Hair Salon",
+  "name": "Ellen's Salon",
   "description": "Braiding and hair styling. Cornrows, box braids and protective styles.",
   "telephone": "+27633868838",
   "address": {
@@ -94,7 +105,7 @@
 <main id="main">
 
   <div class="parting" role="presentation">
-    <svg width="100%" height="46" aria-hidden="true" focusable="false">
+    <svg width="100%" height="46" data-reveal="paint" aria-hidden="true" focusable="false">
       <rect width="100%" height="46" fill="url(#cornrow)"/>
     </svg>
   </div>
@@ -102,23 +113,23 @@
   <section class="sec" aria-labelledby="work">
     <div class="sec__grid">
       <div class="sec__head">
-        <h2 id="work">What we do</h2>
-        <p class="sec__note">For prices and how long a style takes, call and ask. It depends on the length of the hair and the size of the braids.</p>
+        <h2 id="work" data-reveal="paint">What we do</h2>
+        <p class="sec__note" data-reveal="rise">For prices and how long a style takes, call and ask. It depends on the length of the hair and the size of the braids.</p>
       </div>
       <ul class="rows">
-        <li>
+        <li data-reveal="rise">
           <h3>Cornrows</h3>
           <p>Braided flat to the scalp, in straight lines or set patterns, as fine or as thick as you want them.</p>
         </li>
-        <li>
+        <li data-reveal="rise">
           <h3>Box braids</h3>
           <p>Hair parted into sections and plaited down, with or without added hair.</p>
         </li>
-        <li>
+        <li data-reveal="rise">
           <h3>Protective styles</h3>
           <p>Styles that tuck your own hair away and keep it out of the weather while it grows.</p>
         </li>
-        <li>
+        <li data-reveal="rise">
           <h3>Washing, cutting and styling</h3>
           <p>The everyday work, in the same chair. Come in for a wash and a style without a braid appointment.</p>
         </li>
@@ -127,7 +138,7 @@
   </section>
 
   <div class="parting" role="presentation">
-    <svg width="100%" height="46" aria-hidden="true" focusable="false">
+    <svg width="100%" height="46" data-reveal="paint" aria-hidden="true" focusable="false">
       <rect width="100%" height="46" fill="url(#cornrow)"/>
     </svg>
   </div>
@@ -135,10 +146,10 @@
   <section class="sec" aria-labelledby="find">
     <div class="sec__grid sec__grid--find">
       <div class="sec__head">
-        <h2 id="find">Finding us</h2>
+        <h2 id="find" data-reveal="paint">Finding us</h2>
       </div>
 
-      <div class="where">
+      <div class="where" data-reveal="rise">
         <address>
           Dune Route<br>
           Richards Bay – New<br>
@@ -151,11 +162,11 @@
       </div>
 
       <div class="prose">
-        <p>The salon is on the grounds of <strong>Xaba Guest Lodge</strong>, off Dune Route in Richards&nbsp;Bay&nbsp;–&nbsp;New. It is not inside the lodge building: it is the deep red shipping container standing on the sand.</p>
-        <p>If your map app takes you to the lodge, you are in the right place. Walk in through the grounds.</p>
+        <p data-reveal="rise">The salon is on the grounds of <strong>Xaba Guest Lodge</strong>, off Dune Route in Richards&nbsp;Bay&nbsp;–&nbsp;New. It is not inside the lodge building: it is the deep red shipping container standing on the sand.</p>
+        <p data-reveal="rise">If your map app takes you to the lodge, you are in the right place. Walk in through the grounds.</p>
 
-        <h3 class="prose__sub">Hours</h3>
-        <p>Open every day, from morning until 7:30&nbsp;pm. Braiding takes hours rather than minutes, so if you are coming late in the day, call first and check there is time.</p>
+        <h3 class="prose__sub" data-reveal="rise">Hours</h3>
+        <p data-reveal="rise">Open every day, from morning until 7:30&nbsp;pm. Braiding takes hours rather than minutes, so if you are coming late in the day, call first and check there is time.</p>
       </div>
     </div>
   </section>
@@ -163,20 +174,68 @@
   <section class="call" aria-labelledby="contact">
     <div class="call__inner">
       <div class="call__text">
-        <h2 id="contact">Call the salon</h2>
-        <p>No online booking, no forms. Phone Ellen, say what you want done, and arrange a time.</p>
+        <h2 id="contact" data-reveal="paint">Call the salon</h2>
+        <p data-reveal="rise">No online booking, no forms. Phone Ellen, say what you want done, and arrange a time.</p>
       </div>
-      <a class="btn btn--big" href="tel:+27633868838">063&nbsp;386&nbsp;8838</a>
+      <a class="btn btn--big" data-reveal="rise" href="tel:+27633868838">063&nbsp;386&nbsp;8838</a>
     </div>
   </section>
 
 </main>
 
 <footer class="foot">
-  <p class="foot__name">Ellen's Hair Salon</p>
+  <p class="foot__name">Ellen's Salon</p>
   <p>Dune Route, Richards Bay – New, Richards Bay, 3900. On the grounds of Xaba Guest Lodge.</p>
   <p><a href="tel:+27633868838">063 386 8838</a> — open daily until 7:30 pm</p>
 </footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  if (!root.classList.contains('reveal-armed')) return;
+
+  function disarm() { root.classList.remove('reveal-armed'); }
+
+  try {
+    if (!('IntersectionObserver' in window)) return disarm();
+
+    /* Sections are the trigger, not individual elements: one section entering
+       view plays one short sequence, rather than every paragraph popping
+       separately as it crosses the fold. */
+    var groups = document.querySelectorAll('.parting, .sec, .call');
+    if (!groups.length) return disarm();
+
+    function show(group, stagger) {
+      var items = group.querySelectorAll('[data-reveal]');
+      for (var i = 0; i < items.length; i++) {
+        if (stagger) items[i].style.setProperty('--d', Math.min(i, 6) * 70 + 'ms');
+        items[i].setAttribute('data-reveal-in', '');
+      }
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        show(entry.target, true);
+      });
+    }, { rootMargin: '0px 0px -15% 0px', threshold: 0 });
+
+    /* Whatever is already on screen at load is shown outright, before the
+       first paint: the opening frame should be complete, so the reveals are
+       only ever for content you scroll down to. */
+    for (var i = 0; i < groups.length; i++) {
+      if (groups[i].getBoundingClientRect().top < window.innerHeight) {
+        show(groups[i], false);
+      } else {
+        io.observe(groups[i]);
+      }
+    }
+  } catch (e) {
+    disarm();
+  }
+})();
+</script>
 
 </body>
 </html>

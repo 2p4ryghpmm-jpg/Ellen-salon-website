@@ -1,10 +1,11 @@
-# Ellen's Hair Salon
+# Ellen's Salon
 
 A single-page site for a braiding and hair salon on Dune Route, Richards Bay,
 KwaZulu-Natal, operating out of a converted shipping container on the grounds of
 Xaba Guest Lodge.
 
-Static HTML and CSS. No framework, no build step, no JavaScript. Open
+Static HTML and CSS, plus about 30 lines of inline JavaScript for the scroll
+reveals. No framework, no build step, no dependencies. Open
 `index.html` in a browser, or serve the folder with any static host.
 
 ## Business details
@@ -51,8 +52,22 @@ divider. It is a `<pattern>` with `patternUnits="userSpaceOnUse"` on an SVG with
 no `viewBox`, so one tile is always 240×46 real pixels — the mark reads at the
 same scale on a phone as on a desktop.
 
-The one motion moment on the page is the hero lettering painting itself on at
-load. Nothing else animates, and that is disabled under `prefers-reduced-motion`.
+Motion is in two tiers and both follow the same idea — things arrive the way
+paint does, wiped on from the left. The hero lettering paints itself on at load.
+Below it, a section entering view plays one short sequence: its heading and
+parting mark wipe in from the left, then its content rises 8px into place on a
+70ms stagger. Which tier an element belongs to is declared in the markup with
+`data-reveal="paint"` or `data-reveal="rise"`.
+
+Three things keep that from getting in the way. The hidden state hangs off
+`:not([data-reveal-in])` rather than a competing "revealed" rule, so the two
+states never race on specificity. It is armed by an inline script in the
+`<head>` before first paint, and only when JavaScript is available and motion is
+not reduced — so with no JS, or under `prefers-reduced-motion`, every element
+simply keeps its normal visible state and nothing animates at all. And whatever
+is already on screen at load is shown outright rather than revealed, so the
+opening frame is complete and the reveals only ever apply to content you scroll
+down to.
 
 ## Fundamentals
 
@@ -62,7 +77,7 @@ load. Nothing else animates, and that is disabled under `prefers-reduced-motion`
 - All text meets WCAG AA contrast (measured on the rendered page; lowest is
   4.6:1 on the small `Hours`/`Rating`/`Where` labels).
 - `LocalBusiness` (`HairSalon`) JSON-LD, limited to facts that are known.
-- About 59 KB in four requests, no JavaScript and no third-party requests.
+- About 61 KB in four requests, no third-party requests, no dependencies.
 
 ## Fonts
 

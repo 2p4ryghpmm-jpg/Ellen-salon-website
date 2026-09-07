@@ -405,3 +405,53 @@ h2 {
 @media (min-width: 80em) {
   .panel { margin: 2.5rem auto; }
 }
+
+/* ---------- scroll reveals ---------- */
+
+/* Two tiers, matching how the rest of the page already behaves: things that
+   read as painted (the section headings, the parting marks) wipe on from the
+   left exactly like the hero lettering, and running content just rises a
+   little. Which tier an element is in is declared in the markup.
+
+   The hidden state hangs off :not([data-reveal-in]) rather than a competing
+   "revealed" rule, so there is no specificity race between the two states —
+   the transition sits on the base rule and applies in both directions.
+
+   .reveal-armed is set by an inline script before first paint, and only when
+   JS is available and motion is not reduced. Without it every element keeps
+   its ordinary visible state, so the page is complete with no JS at all. */
+
+.reveal-armed [data-reveal] {
+  transition:
+    clip-path .55s cubic-bezier(.2, .7, .3, 1) var(--d, 0ms),
+    opacity .4s ease-out var(--d, 0ms),
+    transform .4s cubic-bezier(.2, .7, .3, 1) var(--d, 0ms);
+}
+
+/* Both states are inset() so the wipe interpolates — going to clip-path: none
+   would snap instead. The vertical insets are negative so the box never clips
+   a tall glyph in Archivo Black at these tight line-heights. */
+.reveal-armed [data-reveal="paint"] {
+  clip-path: inset(-15% 0 -15% 0);
+}
+
+.reveal-armed [data-reveal="paint"]:not([data-reveal-in]) {
+  clip-path: inset(-15% 100% -15% 0);
+  opacity: .25;
+}
+
+.reveal-armed [data-reveal="rise"]:not([data-reveal-in]) {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* Safety net if the preference flips after the page has loaded. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-armed [data-reveal],
+  .reveal-armed [data-reveal]:not([data-reveal-in]) {
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

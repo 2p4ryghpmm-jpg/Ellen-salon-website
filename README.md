@@ -37,10 +37,11 @@ red-oxide container standing on sand, hand-painted white lettering, deep shadow.
 | `--zinc` | `#5F5B54` | weathered metal; secondary text |
 | `--sea` | `#5B7C85` | one cool coastal note, hairlines only — never text |
 
-Type is **Archivo Black** for display and **Karla** for body text. The
-hand-painted quality of the hero comes from per-letter baseline offsets and
-rotations plus an SVG turbulence filter (`#brush`), not from a script typeface —
-a sign painter uses a plain bold letterform and an unsteady hand.
+Type is **Archivo Black** for display and **Karla** for body text. The hero sets
+the wordmark — `ellen's` over `SALON` — as one painted lockup. Its hand-painted
+quality comes from per-letter baseline offsets and rotations plus an SVG
+turbulence filter (`#brush`), not from a script typeface: a sign painter uses a
+plain bold letterform and an unsteady hand.
 
 Everything is hard left-aligned. The hero panel and every section below share one
 `--wrap` width and one `--pad`, so the left edge is continuous down the page.

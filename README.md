@@ -69,6 +69,34 @@ is already on screen at load is shown outright rather than revealed, so the
 opening frame is complete and the reveals only ever apply to content you scroll
 down to.
 
+## Languages
+
+The page opens in English with an isiZulu toggle at the top of the hero. Most
+people walking into a salon in Richards Bay speak isiZulu at home, so it is a
+toggle rather than a menu: both languages sit on screen, and the current one is
+underlined in sign-paint white.
+
+Each translated string lives on the element itself as a `data-zu` attribute,
+next to the English it replaces, so a correction never means hunting through a
+separate dictionary. The English is stashed into `data-en` at load, and
+switching assigns `textContent` — no markup is ever rebuilt from a string, so
+every element carrying a translation is a plain text leaf. That is why the
+`<strong>` came off "Xaba Guest Lodge": the isiZulu locative prefix binds onto
+the name itself (`egcekeni laseXaba Guest Lodge`), so the name cannot be split
+out of the sentence the way it can in English.
+
+Switching also sets `lang` on the root and on each swapped element, updates the
+`<title>`, and stores the choice in `localStorage` so it survives a reload.
+The wordmark, the phone number and the street address stay as they are.
+
+**The isiZulu has not been checked by a native speaker.** It was written to be
+plain and direct rather than formal, and it keeps the style names people
+actually use in KZN (`cornrows`, `box braids`) instead of translating them.
+Before this goes in front of customers, someone who speaks isiZulu should read
+it — particularly the service descriptions, where the noun-class agreements are
+the easiest thing to get wrong. Corrections go in the `data-zu` attributes in
+`index.html` and nowhere else.
+
 ## Fundamentals
 
 - Mobile-first; checked for horizontal overflow from 320px to 1920px.
@@ -77,7 +105,7 @@ down to.
 - All text meets WCAG AA contrast (measured on the rendered page; lowest is
   4.6:1 on the small `Hours`/`Rating`/`Where` labels).
 - `LocalBusiness` (`HairSalon`) JSON-LD, limited to facts that are known.
-- About 61 KB in four requests, no third-party requests, no dependencies.
+- About 63 KB in four requests, no third-party requests, no dependencies.
 
 ## Fonts
 

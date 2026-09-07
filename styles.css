@@ -350,10 +350,11 @@ h2 {
     padding: 3rem var(--pad) 2.75rem;
     display: grid;
     grid-template-columns: minmax(0, 1fr) 15rem;
-    grid-template-areas: "sign facts" "lede facts";
+    grid-template-areas: "lang lang" "sign facts" "lede facts";
     column-gap: 3rem;
     align-items: start;
   }
+  .lang  { grid-area: lang; }
   .sign  { grid-area: sign; }
   .lede  { grid-area: lede; }
   .facts {
@@ -454,4 +455,36 @@ h2 {
     transform: none;
     transition: none;
   }
+}
+
+/* ---------- language toggle ---------- */
+
+/* Two languages is a toggle, not a menu: both are on screen, the current one
+   underlined in sign-paint white. Left-aligned like everything else. */
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  margin: 0 0 2.25rem -.55rem;
+}
+
+.lang__btn {
+  font-family: var(--body);
+  font-size: .9375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgba(247, 244, 238, .78);
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  padding: .35rem .55rem;
+  cursor: pointer;
+}
+
+.lang__btn:hover { color: var(--paint); }
+
+.lang__btn[aria-pressed="true"] {
+  color: var(--paint);
+  border-bottom-color: var(--paint);
 }
